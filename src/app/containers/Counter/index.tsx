@@ -1,8 +1,8 @@
 import * as React from 'react';
-// import { increment, decrement } from 'modules/counter/';
+import { increment, decrement } from 'modules/counter/';
 import { ICounter } from 'models/counter';
 import { ICounterAction } from 'models/counter';
-// const { connect } = require('react-redux');
+const { connect } = require('react-redux');
 const style = require('./style.css');
 
 interface IProps {
@@ -11,28 +11,6 @@ interface IProps {
   decrement: Redux.ActionCreator<ICounterAction>;
 }
 
-function Counter({ increment, decrement, counter }: IProps) {
-  const component = (
-    <div className={style.Counter}>
-      <h4>Counter Example</h4>
-      <button
-        name="incBtn"
-        onClick={increment}>
-        INCREMENT
-    </button>
-      <button
-        name="decBtn"
-        onClick={decrement}
-        disabled={counter.count <= 0}>
-        DECREMENT
-    </button>
-      <p>{counter.count}</p>
-    </div>
-  );
-  return component;
-};
-
-/*
 @connect(
   (state) => ({ counter: state.counter }),
   (dispatch) => ({
@@ -41,7 +19,7 @@ function Counter({ increment, decrement, counter }: IProps) {
   }),
 )
 
-class Counter extends React.Component<IProps, void> {
+class Counter extends React.Component<IProps, {}> {
   public render() {
     const { increment, decrement, counter } = this.props;
 
@@ -64,6 +42,5 @@ class Counter extends React.Component<IProps, void> {
     );
   }
 }
-*/
 
 export { Counter }
